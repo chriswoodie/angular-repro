@@ -1,0 +1,23 @@
+@if (isExternal) {
+  <a  
+    #anchorRef
+    [href]="link"
+  >
+    <ng-template [ngTemplateOutlet]="contentTemplateRef"></ng-template>
+  </a>
+}
+
+@if (!isExternal) {
+  <a
+    #anchorRef
+    [routerLink]="link"
+  >
+    <ng-template [ngTemplateOutlet]="contentTemplateRef"></ng-template>
+  </a>
+}
+
+<ng-template #contentTemplateRef>
+  <lib-button-content>
+    <ng-content></ng-content>
+  </lib-button-content>
+</ng-template>
